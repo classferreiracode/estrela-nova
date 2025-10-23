@@ -1,1 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import 'tailwindcss';
+
+@theme {
+    --color-primary: #3b82f6;
+    --color-primary-500: #3b82f6;
+    --color-primary-600: #2563eb;
+
+    --color-stone-100: #f5f5f4;
+    --color-stone-200: #e7e5e4;
+    --color-stone-500: #78716c;
+    --color-stone-700: #44403c;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+}
+
+.card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.transition-slow {
+    transition: all 0.3s ease;
+}
+
+.hero-slide {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    min-height: 500px;
+}

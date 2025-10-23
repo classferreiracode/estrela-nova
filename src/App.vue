@@ -1,11 +1,15 @@
-<script setup></script>
-
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+    <div class="font-sans bg-stone-100 text-stone-700">
+        <HeaderComponent />
+        <main>
+            <RouterView />
+        </main>
+        <FooterComponent />
+    </div>
 </template>
 
-<style scoped></style>
+<script setup>
+import HeaderComponent from '@/components/HeaderComponent.vue'
+import FooterComponent from '@/components/FooterComponent.vue'
+import { RouterView } from 'vue-router'
+</script>
