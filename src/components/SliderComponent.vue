@@ -10,28 +10,24 @@ const modules = [Autoplay, Pagination, Navigation]
 const slides = [
     {
         id: 1,
-        title: 'Transformando Vidas Através da Educação',
+        title: 'Há mais de 40 anos Fortalecendo muitas histórias',
         description:
-            'Junte-se a nós na missão de criar um futuro melhor para crianças e adolescentes',
+            'Acreditamos que a educação transforma vidas e abre caminhos para que bebês, crianças, bebês, jovens e adultos construam um futuro cheio de possibilidades.',
         image: 'http://static.photos/education/1200x630/1',
-        primaryAction: { text: 'Saiba Mais', link: '#' },
+        primaryAction: { text: 'Saiba Mais', link: '#sobre' },
         secondaryAction: { text: 'Doar Agora', link: '#' },
     },
     {
         id: 2,
-        title: 'Educação para um Futuro Melhor',
-        description: 'Apoie nossos programas educacionais e faça a diferença na vida de jovens',
+        title: '',
+        description: '',
         image: 'http://static.photos/education/1200x630/2',
-        primaryAction: { text: 'Conheça Nossos Projetos', link: '#' },
-        secondaryAction: { text: 'Participe', link: '#' },
     },
     {
         id: 3,
-        title: 'Juntos pela Educação de Qualidade',
-        description: 'Sua contribuição ajuda a proporcionar oportunidades educacionais para todos',
+        title: '',
+        description: '',
         image: 'http://static.photos/education/1200x630/3',
-        primaryAction: { text: 'Veja Como Ajudar', link: '#' },
-        secondaryAction: { text: 'Doe Agora', link: '#' },
     },
 ]
 </script>
@@ -71,7 +67,7 @@ const slides = [
                             <a
                                 v-if="slide.primaryAction"
                                 :href="slide.primaryAction.link"
-                                class="bg-primary text-white px-6 py-3 rounded-md font-medium hover:bg-blue-600 transition"
+                                class="bg-secondary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary-600 transition"
                                 >{{ slide.primaryAction.text }}</a
                             >
                             <a

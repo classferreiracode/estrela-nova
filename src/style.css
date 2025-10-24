@@ -2,14 +2,79 @@
 @import 'tailwindcss';
 
 @theme {
-    --color-primary: #3b82f6;
+    /* uso das cores
+    50 - Fundo muito claro / hover
+    100 - Borda / destaque leve
+    300 - Estado ativo / ícones
+    500 - Botões principais
+    600 - Hover principal
+    700 - Texto sobre fundo claro
+    900 - Fundo escuro / contraste
+    */
+
+    --color-primary: #0072bb;
+    --color-primary-100: #b3dbf4;
+    --color-primary-300: #4ba9e0;
     --color-primary-500: #3b82f6;
     --color-primary-600: #2563eb;
+    --color-primary-700: #1e4fb8;
+    --color-primary-900: #0d2b6b;
+
+    --color-secondary: #ec5668;
+    --color-secondary-50: #fdecef;
+    --color-secondary-100: #f8bbc3;
+    --color-secondary-300: #f17e8e;
+    --color-secondary-500: #ec5668;
+    --color-secondary-600: #d63c52;
+    --color-secondary-700: #b72f43;
+    --color-secondary-900: #731d28;
+
+    --color-yellow: #ffe042;
+    --color-yellow-50: #fff9e0;
+    --color-yellow-100: #fff3b0;
+    --color-yellow-300: #ffe972;
+    --color-yellow-500: #ffe042;
+    --color-yellow-600: #e5c700;
+    --color-yellow-700: #b39b00;
+    --color-yellow-900: #665800;
+
+    --color-gray-50: #f9fafb;
+    --color-gray-100: #f3f4f6;
+    --color-gray-300: #d1d5db;
+    --color-gray-500: #6b7280;
+    --color-gray-700: #374151;
+    --color-gray-900: #111827;
 
     --color-stone-100: #f5f5f4;
     --color-stone-200: #e7e5e4;
     --color-stone-500: #78716c;
     --color-stone-700: #44403c;
+}
+
+.gradient-primary {
+    background: linear-gradient(
+        135deg,
+        var(--color-primary),
+        var(--color-secondary),
+        var(--color-yellow)
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 12s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+        filter: brightness(1);
+    }
+    50% {
+        background-position: 100% 50%;
+        filter: brightness(1.1);
+    }
+    100% {
+        background-position: 0% 50%;
+        filter: brightness(1);
+    }
 }
 
 .hero-gradient {
@@ -30,4 +95,25 @@
     background-position: center;
     height: 80vh;
     min-height: 500px;
+}
+
+.hero-slide-sponsors {
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    min-height: 300px;
+}
+
+.sponsor-logo {
+    max-height: 150px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+.swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
