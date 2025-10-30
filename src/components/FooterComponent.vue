@@ -2,155 +2,131 @@
 import { onMounted } from 'vue'
 
 onMounted(() => {
-    feather.replace()
+    window.feather.replace()
 })
 </script>
 <template>
     <!-- Footer -->
-    <footer class="bg-[#2B2B2B] text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer class="bg-stone-800 text-white pt-12 pb-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <a href="/" class="flex items-center mb-6">
-                        <img
-                            src="@/assets/images/logo-branco.png"
-                            alt="Logo Estrela Nova"
-                            class="h-12 mr-3"
-                        />
-                    </a>
-                    <p class="text-stone-400 mb-4">
-                        Missão: Promover ações socioeducativas e de cidadania com a comunidade.
+                    <img
+                        src="@/assets/images/logo-branco.png"
+                        alt="Logo Estrela Nova"
+                        class="h-12 mr-3"
+                    />
+                    <p class="text-stone-300 mb-4">
+                        Promovendo ações socioeducativas e de cidadania com a comunidade.
                     </p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-stone-400 hover:text-white transition-slow">
+                        <a
+                            href="https://www.facebook.com/EstrelaNovaMC/"
+                            target="_blank"
+                            class="text-stone-300 hover:text-white"
+                        >
                             <i data-feather="facebook"></i>
                         </a>
-                        <a href="#" class="text-stone-400 hover:text-white transition-slow">
+                        <a
+                            href="https://www.instagram.com/estrelanovamc/"
+                            target="_blank"
+                            class="text-stone-300 hover:text-white"
+                        >
                             <i data-feather="instagram"></i>
                         </a>
-                        <a href="#" class="text-stone-400 hover:text-white transition-slow">
+                        <a
+                            href="https://www.linkedin.com/company/estrelanovamc/"
+                            target="_blank"
+                            class="text-stone-300 hover:text-white"
+                        >
                             <i data-feather="linkedin"></i>
                         </a>
-                        <a href="#" class="text-stone-400 hover:text-white transition-slow">
+                        <a
+                            href="https://youtube.com/estrelanovamc/"
+                            target="_blank"
+                            class="text-stone-300 hover:text-white"
+                        >
                             <i data-feather="youtube"></i>
                         </a>
                     </div>
                 </div>
-
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Navegação</h3>
+                    <h4 class="font-bold mb-4">Links Rápidos</h4>
                     <ul class="space-y-2">
                         <li>
-                            <a href="#sobre" class="text-stone-400 hover:text-white transition-slow"
-                                >Sobre</a
-                            >
+                            <a href="#" class="text-stone-300 hover:text-white">Início</a>
                         </li>
                         <li>
-                            <a
-                                href="#projetos"
-                                class="text-stone-400 hover:text-white transition-slow"
-                                >Projetos</a
-                            >
+                            <a href="#" class="text-stone-300 hover:text-white">Sobre Nós</a>
                         </li>
                         <li>
-                            <a
-                                href="#transparencia"
-                                class="text-stone-400 hover:text-white transition-slow"
-                                >Transparência</a
-                            >
+                            <a href="#" class="text-stone-300 hover:text-white">Projetos</a>
                         </li>
                         <li>
-                            <a
-                                href="#ajudar"
-                                class="text-stone-400 hover:text-white transition-slow"
-                                >Como Ajudar</a
-                            >
+                            <a href="#" class="text-stone-300 hover:text-white">Como Ajudar</a>
                         </li>
                         <li>
-                            <a
-                                href="#contato"
-                                class="text-stone-400 hover:text-white transition-slow"
-                                >Contato</a
-                            >
+                            <a href="#" class="text-stone-300 hover:text-white">Contato</a>
                         </li>
                     </ul>
                 </div>
-
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Projetos</h3>
-                    <ul class="space-y-2">
-                        <li>
-                            <a href="#" class="text-stone-400 hover:text-white transition-slow"
-                                >Projeto Educar</a
-                            >
+                    <h4 class="font-bold mb-4">Contato</h4>
+                    <ul class="space-y-2 text-stone-300">
+                        <li class="flex items-start">
+                            <i data-feather="map-pin" class="mr-2 mt-1 flex-shrink-0"></i>
+                            <span>Rua João Bernardo Vieira, 267 - Jardim Paris, São Paulo/SP</span>
                         </li>
-                        <li>
-                            <a href="#" class="text-stone-400 hover:text-white transition-slow"
-                                >Arte na Rua</a
-                            >
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            <span>estrelanova@estrelanova.org.br</span>
                         </li>
-                        <li>
-                            <a href="#" class="text-stone-400 hover:text-white transition-slow"
-                                >Esporte para Todos</a
-                            >
-                        </li>
-                        <li>
-                            <a href="#" class="text-stone-400 hover:text-white transition-slow"
-                                >Biblioteca Comunitária</a
-                            >
-                        </li>
-                        <li>
-                            <a href="#" class="text-stone-400 hover:text-white transition-slow"
-                                >Todos os projetos</a
-                            >
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            <span>(11) 5842-0333</span>
                         </li>
                     </ul>
                 </div>
-
                 <div>
-                    <h3 class="font-bold text-lg mb-4">Contato</h3>
-                    <address class="not-italic text-stone-400">
-                        Rua João Bernardo Vieira, 267 - Jardim Paris<br />
-                        São Paulo/SP - CEP 05794-310<br />
-                        CNPJ: 53.817.169/0001-03<br />
-                        <a
-                            href="mailto:estrelanova@estrelanova.org.br"
-                            class="hover:text-white transition-slow"
-                            >estrelanova@estrelanova.org.br</a
-                        ><br /><br />
-                        <div class="flex items-center space-x-2">
-                            <i data-feather="phone"></i>
-                            <span class="hover:text-white transition-slow">(11) 5842-0333</span>
-                        </div>
-
-                        <br />
-                    </address>
+                    <h4 class="font-bold mb-4">Newsletter</h4>
+                    <p class="text-stone-300 mb-4">
+                        Assine nossa newsletter e receba atualizações sobre nossos projetos.
+                    </p>
+                    <form class="flex">
+                        <input
+                            type="email"
+                            placeholder="Seu melhor e-mail"
+                            class="px-4 py-2 rounded-l-md bg-stone-100 text-stone-800 w-full"
+                        />
+                        <button
+                            type="submit"
+                            class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-blue-600"
+                        >
+                            <i data-feather="send"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
-
             <div
-                class="border-t border-stone-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center"
+                class="border-t border-stone-700 pt-6 flex flex-col md:flex-row justify-between items-center"
             >
-                <p class="text-stone-500 text-sm mb-4 md:mb-0">
+                <p class="text-stone-300 mb-4 md:mb-0">
                     &copy; {{ new Date().getFullYear() }} Estrela Nova. Todos os direitos
-                    reservados. - Desenvolvido por
+                    reservados. - Desenvolvido com muito
+                    <i data-feather="heart" class="hover:text-red-500 w-4 h-4 inline"></i> por
                     <a
-                        href="https://github.com/classFerreiraCode"
+                        href="https://ferreira-si.vercel.app/"
                         target="_blank"
                         rel="noopener"
-                        title="classFerreiraCode"
-                        aria-label="classFerreiraCode"
+                        title="Ferreira S.I"
+                        aria-label="Ferreira S.I"
                         class="hover:text-white transition-slow underline font-semibold"
-                        >@classFerreiraCode</a
+                        >Ferreira S.I</a
                     >
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-stone-500 hover:text-white text-sm transition-slow"
-                        >Política de Privacidade</a
-                    >
-                    <a href="#" class="text-stone-500 hover:text-white text-sm transition-slow"
-                        >Termos de Uso</a
-                    >
+                    <a href="#" class="text-stone-300 hover:text-white">Política de Privacidade</a>
+                    <a href="#" class="text-stone-300 hover:text-white">Termos de Uso</a>
                 </div>
             </div>
         </div>

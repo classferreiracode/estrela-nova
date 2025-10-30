@@ -400,7 +400,7 @@ onMounted(() => {
                         href="#"
                         class="inline-flex items-center bg-secondary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary-600 transition"
                     >
-                        Seja um apoiador <i data-feather="arrow-right" class="ml-2"></i>
+                        Ver mais <i data-feather="arrow-right" class="ml-2"></i>
                     </a>
                 </div>
             </div>
@@ -488,6 +488,97 @@ onMounted(() => {
                             pagar internet e ter um computador, é só aqui mesmo no Telecentro. Para
                             mim foi um achado maravilhoso encontrar esse lugar."
                         </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donation CTA -->
+        <section id="doar" class="py-20 hero-gradient text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Sua doação transforma vidas</h2>
+                    <p class="text-xl mb-8 max-w-2xl mx-auto">
+                        Com apenas R$ 50 por mês, você custeia o material escolar de uma criança por
+                        um ano inteiro.
+                    </p>
+
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 max-w-2xl mx-auto">
+                        <h3 class="text-2xl font-bold mb-6">Escolha o valor da sua doação</h3>
+
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <button
+                                class="bg-white/20 hover:bg-white/30 py-3 rounded-lg font-medium transition-slow"
+                            >
+                                R$ 50
+                            </button>
+                            <button
+                                class="bg-white/20 hover:bg-white/30 py-3 rounded-lg font-medium transition-slow"
+                            >
+                                R$ 100
+                            </button>
+                            <button
+                                class="bg-primary-500 py-3 rounded-lg font-medium transition-slow"
+                            >
+                                R$ 150
+                            </button>
+                            <button
+                                class="bg-white/20 hover:bg-white/30 py-3 rounded-lg font-medium transition-slow"
+                            >
+                                Outro valor
+                            </button>
+                        </div>
+
+                        <div class="flex flex-col md:flex-row gap-4 justify-center">
+                            <button
+                                class="bg-white text-primary-600 hover:bg-stone-100 px-8 py-3 rounded-full font-bold transition-slow"
+                            >
+                                Doar uma vez
+                            </button>
+                            <button
+                                class="border-2 border-white hover:bg-white/10 px-8 py-3 rounded-full font-bold transition-slow"
+                            >
+                                Doar mensalmente
+                            </button>
+                        </div>
+
+                        <div class="mt-6 text-sm text-white/80">
+                            <i data-feather="lock" class="inline mr-2 w-4 h-4"></i>
+                            Sua doação é 100% segura.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-16 bg-stone-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-primary rounded-2xl p-8 md:p-12 text-white">
+                    <div class="md:flex items-center justify-between">
+                        <div class="md:w-2/3 mb-6 md:mb-0">
+                            <h2 class="text-2xl md:text-3xl font-bold mb-4">
+                                Junte-se a Nós Nessa Jornada
+                            </h2>
+                            <p class="text-white/90">
+                                Sua contribuição pode transformar vidas. Seja um doador, voluntário
+                                ou parceiro e faça parte dessa mudança.
+                            </p>
+                        </div>
+                        <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4">
+                            <a
+                                href="https://estrelanovadoe.paradoar.org/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="bg-white text-primary px-6 py-3 rounded-md font-medium text-center hover:bg-stone-100 transition"
+                                >Doar Agora</a
+                            >
+                            <a
+                                href="#"
+                                class="bg-primary border border-white text-white px-6 py-3 rounded-md font-medium text-center hover:bg-blue-600 transition"
+                                >Seja Voluntário</a
+                            >
+                        </div>
                     </div>
                 </div>
             </div>
