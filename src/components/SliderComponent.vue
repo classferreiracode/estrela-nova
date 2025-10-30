@@ -77,13 +77,13 @@ const slides = [
                             <a
                                 v-if="slide.primaryAction"
                                 :href="slide.primaryAction.link"
-                                class="bg-secondary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary-600 transition"
+                                class="bg-white text-primary px-6 py-3 rounded-md hover:bg-stone-100 font-medium transition"
                                 >{{ slide.primaryAction.text }}</a
                             >
                             <a
                                 v-if="slide.secondaryAction"
                                 :href="slide.secondaryAction.link"
-                                class="bg-white text-primary px-6 py-3 rounded-md font-medium hover:bg-stone-100 transition"
+                                class="gradient-primary text-white px-6 py-3 rounded-md font-medium"
                                 >{{ slide.secondaryAction.text }}</a
                             >
                         </div>

@@ -60,7 +60,7 @@ onMounted(() => {
                     </div>
                 </div>
                 <div class="text-end mt-8">
-                    <p class="italic text-stone-500 text-sm">
+                    <p class="italic text-stone-500/50 text-sm">
                         [*] Dados referentes ao ano de 2024.
                     </p>
                 </div>
