@@ -274,8 +274,8 @@ onMounted(() => {
                         </div>
                     </div>
                     <div class="md:w-1/2">
-                        <div class="gradient-primary rounded-xl shadow-lg pt-2 overflow-hidden">
-                            <div class="bg-white p-8 rounded-b-xl">
+                        <div class="gradient-primary rounded-xl shadow-lg pt-4 overflow-hidden">
+                            <div class="bg-white p-8 pt-4 rounded-b-xl">
                                 <h3 class="text-2xl font-bold mb-4 text-primary">Selos</h3>
                                 <div class="swiper heroSwiper relative">
                                     <Swiper
@@ -570,7 +570,7 @@ onMounted(() => {
                                 href="https://estrelanovadoe.paradoar.org/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                class="bg-white text-primary px-6 py-3 rounded-md font-medium text-center hover:bg-stone-100 transition"
+                                class="gradient-primary text-white px-6 py-3 rounded-md font-medium text-center hover:bg-stone-100 transition"
                                 >Doar Agora</a
                             >
                             <a

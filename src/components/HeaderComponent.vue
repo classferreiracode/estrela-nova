@@ -7,7 +7,7 @@ const ui = useUiStore()
 const { mobileMenuOpen } = storeToRefs(ui)
 
 onMounted(() => {
-    feather.replace()
+    window.feather.replace()
 })
 </script>
 
@@ -24,8 +24,14 @@ onMounted(() => {
                 </RouterLink>
 
                 <nav class="hidden md:flex space-x-8">
-                    <RouterLink to="/about" class="font-medium hover:text-primary-500"
+                    <RouterLink to="/" class="font-medium hover:text-primary-500">
+                        <i data-feather="home"></i>
+                    </RouterLink>
+                    <RouterLink to="/sobre" class="font-medium hover:text-primary-500"
                         >Sobre</RouterLink
+                    >
+                    <RouterLink to="/contato" class="font-medium hover:text-primary-500"
+                        >Contato</RouterLink
                     >
                     <!-- <RouterLink to="/projetos" class="font-medium hover:text-primary-500">Projetos</RouterLink>
             <RouterLink to="/contato" class="font-medium hover:text-primary-500">Contato</RouterLink> -->
@@ -40,7 +46,9 @@ onMounted(() => {
 
     <div v-if="mobileMenuOpen" class="bg-white shadow-md md:hidden">
         <nav class="flex flex-col p-4 space-y-4">
-            <RouterLink to="/about" @click="ui.toggleMenu">Sobre</RouterLink>
+            <RouterLink to="/" @click="ui.toggleMenu">Home</RouterLink>
+            <RouterLink to="/sobre" @click="ui.toggleMenu">Sobre</RouterLink>
+            <RouterLink to="/contato" @click="ui.toggleMenu">Contato</RouterLink>
             <!-- <RouterLink to="/projetos" @click="ui.toggleMenu">Projetos</RouterLink>
       <RouterLink to="/contato" @click="ui.toggleMenu">Contato</RouterLink> -->
         </nav>
