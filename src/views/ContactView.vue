@@ -126,10 +126,14 @@ onMounted(() => {
                                     class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-primary-500 focus:outline-none"
                                 >
                                     <option>Selecione um assunto</option>
-                                    <option>Dúvidas</option>
-                                    <option>Doações</option>
+                                    <option>Doação Pessoa Física</option>
+                                    <option>Doação Pessoa Jurídica</option>
+                                    <option>Doação Imposto de Renda</option>
+                                    <option>Atendimento</option>
+                                    <option>Administração</option>
                                     <option>Voluntariado</option>
                                     <option>Parcerias</option>
+                                    <option>Dúvidas</option>
                                     <option>Outros</option>
                                 </select>
                             </div>
