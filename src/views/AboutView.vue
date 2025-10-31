@@ -18,9 +18,7 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="order-2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary-600">
-                        Nossa História
-                    </h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa História</h2>
                     <p class="text-stone-600">
                         Uma história construída com solidariedade, compromisso e o desejo de ver
                         cada pessoa brilhar.
@@ -41,9 +39,7 @@
     <section class="bg-stone-100 py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary-600">
-                    Nossa Trajetória
-                </h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Trajetória</h2>
             </div>
             <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                 <li>
@@ -61,23 +57,32 @@
                             />
                         </svg>
                     </div>
-                    <div class="timeline-start mb-10 md:text-end">
-                        <time class="font-mono text-lg italic">1970</time>
-                        <!-- <div class="text-lg font-black">Início da Estrela Nova</div> -->
-                        <div class="flex justify-end">
-                            <img
-                                src="@/assets/images/1986-Bairo-Março-03.jpg"
-                                alt="Crianças da Estrela Nova"
-                                class="rounded-xl shadow-lg w-3/4 mb-4"
-                            />
-                        </div>
-                        <p class="text-justify w-3/4 ms-auto">
-                            Campo Limpo era considerado um bairro dormitório. Não havia
-                            infraestrutura de saúde, cultura, esporte, educação e saneamento básico
-                            para atender a população. Seus moradores estavam insatisfeitos com as
-                            condições de vida e sabiam que não poderiam esperar apenas providencias
-                            do Governo.
-                        </p>
+                    <div
+                        @click="toggleJorney('1970')"
+                        class="timeline-start mb-10 md:text-end cursor-pointer"
+                    >
+                        <time class="font-mono text-lg hover:text-2xl transition-slow italic"
+                            >1970</time
+                        >
+                        <Transition>
+                            <div v-if="showJorney === '1970'">
+                                <!-- <div class="text-lg font-black">Início da Estrela Nova</div> -->
+                                <div class="flex justify-end">
+                                    <img
+                                        src="@/assets/images/1986-Bairo-Março-03.jpg"
+                                        alt="Crianças da Estrela Nova"
+                                        class="rounded-xl shadow-lg w-3/4 mb-4"
+                                    />
+                                </div>
+                                <p class="text-justify w-3/4 ms-auto">
+                                    Campo Limpo era considerado um bairro dormitório. Não havia
+                                    infraestrutura de saúde, cultura, esporte, educação e saneamento
+                                    básico para atender a população. Seus moradores estavam
+                                    insatisfeitos com as condições de vida e sabiam que não poderiam
+                                    esperar apenas providencias do Governo.
+                                </p>
+                            </div>
+                        </Transition>
                     </div>
                     <hr />
                 </li>
@@ -97,20 +102,27 @@
                             />
                         </svg>
                     </div>
-                    <div class="timeline-end md:mb-10">
-                        <time class="font-mono text-lg italic">1978</time>
-                        <img
-                            src="@/assets/images/5.png"
-                            alt="Crianças da Estrela Nova"
-                            class="rounded-xl shadow-lg w-3/4 mb-4"
-                        />
-                        <p class="text-justify w-3/4 me-auto">
-                            Emi e Jos Schoenmaker (casal de origem holandesa) mudam se para Campo
-                            Limpo, para ficarem mais próximos da realidade local. No ano seguinte,
-                            começam, a mobilizar a comunidade em busca de molhorias para o bairro,
-                            formando grupos de trabalho como costura, recreação escolar e multirões
-                            para canalização de esgoto e vielas.
-                        </p>
+                    <div @click="toggleJorney('1978')" class="timeline-end md:mb-10 cursor-pointer">
+                        <time class="font-mono text-lg hover:text-2xl transition-slow italic"
+                            >1978</time
+                        >
+                        <Transition>
+                            <div v-if="showJorney === '1978'">
+                                <img
+                                    src="@/assets/images/5.png"
+                                    alt="Crianças da Estrela Nova"
+                                    class="rounded-xl shadow-lg w-3/4 mb-4"
+                                />
+                                <p class="text-justify w-3/4 me-auto">
+                                    Emi e Jos Schoenmaker (casal de origem holandesa) mudam se para
+                                    Campo Limpo, para ficarem mais próximos da realidade local. No
+                                    ano seguinte, começam, a mobilizar a comunidade em busca de
+                                    molhorias para o bairro, formando grupos de trabalho como
+                                    costura, recreação escolar e multirões para canalização de
+                                    esgoto e vielas.
+                                </p>
+                            </div>
+                        </Transition>
                     </div>
                     <hr />
                 </li>
@@ -188,15 +200,55 @@
                         </svg>
                     </div>
                     <div class="timeline-start mb-10 md:text-end">
-                        <time class="font-mono text-lg italic">2015</time>
-                        <div class="text-lg font-black">Apple Watch</div>
-                        The Apple Watch is a line of smartwatches produced by Apple Inc. It
-                        incorporates fitness tracking, health-oriented capabilities, and wireless
-                        telecommunication, and integrates with iOS and other Apple products and
-                        services
+                        <time @click="showJorney" class="font-mono text-lg italic">2015</time>
+                        <div>
+                            <div class="text-lg font-black">Apple Watch</div>
+                            The Apple Watch is a line of smartwatches produced by Apple Inc. It
+                            incorporates fitness tracking, health-oriented capabilities, and
+                            wireless telecommunication, and integrates with iOS and other Apple
+                            products and services
+                        </div>
                     </div>
                 </li>
             </ul>
         </div>
     </section>
+
+    <!-- Our Management Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Gestão</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">
+                    Estes são os profissionais que ajudam a direcionar e fortalecer nossas ações de
+                    modo estratégico. São voluntários escolhidos há cada dois anos na Assembleia
+                    Geral do Estrela Nova, para compor os grupos de Diretoria, Conselhos Fiscal,
+                    Consultivo e Comunitário.
+                </p>
+            </div>
+        </div>
+    </section>
 </template>
+
+<script setup>
+import { ref } from 'vue'
+import { onMounted } from 'vue'
+
+const showJorney = ref(false)
+
+const toggleJorney = (year) => {
+    if (year) showJorney.value = year
+    else showJorney.value = !showJorney.value
+
+    // remove value
+    if (showJorney.value) {
+        setTimeout(() => {
+            showJorney.value = ''
+        }, 6000)
+    }
+}
+
+onMounted(() => {
+    window.feather.replace()
+})
+</script>
