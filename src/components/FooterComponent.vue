@@ -100,7 +100,7 @@ onMounted(() => {
                         />
                         <button
                             type="submit"
-                            class="gradient-primary text-white px-4 py-2 rounded-r-md hover:bg-blue-600"
+                            class="gradient-primary text-white px-4 py-2 rounded-r-md cursor-pointer"
                         >
                             <i data-feather="send"></i>
                         </button>
@@ -120,13 +120,17 @@ onMounted(() => {
                         rel="noopener"
                         title="Ferreira S.I"
                         aria-label="Ferreira S.I"
-                        class="hover:text-white transition-slow underline font-semibold"
+                        class="hover:text-primary transition-slow underline font-semibold"
                         >Ferreira S.I</a
                     >
                 </p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-stone-300 hover:text-white">Política de Privacidade</a>
-                    <a href="#" class="text-stone-300 hover:text-white">Termos de Uso</a>
+                    <a href="#" target="_blank" class="text-stone-300 hover:text-white"
+                        >Política de Privacidade</a
+                    >
+                    <a href="#" target="_blank" class="text-stone-300 hover:text-white"
+                        >Termos de Uso</a
+                    >
                 </div>
             </div>
         </div>
