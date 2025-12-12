@@ -43,19 +43,19 @@ onMounted(() => {
             <div class="container mx-auto px-4">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">684</div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">684</div>
                         <div class="text-stone-500">Crianças e Adolescentes</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">664</div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">664</div>
                         <div class="text-stone-500">Famílias</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">242</div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">242</div>
                         <div class="text-stone-500">Parceiros</div>
                     </div>
                     <div class="p-4">
-                        <div class="text-4xl md:text-5xl font-bold text-primary-600 mb-2">113</div>
+                        <div class="text-4xl md:text-5xl font-bold text-primary mb-2">113</div>
                         <div class="text-stone-500">Voluntários</div>
                     </div>
                 </div>
@@ -79,7 +79,7 @@ onMounted(() => {
                         />
                     </div>
                     <div class="md:w-1/2">
-                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary-600">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">
                             Nossa História
                         </h2>
                         <p class="text-lg mb-6">
@@ -103,7 +103,7 @@ onMounted(() => {
                             <div class="bg-white p-6 rounded-xl shadow-sm">
                                 <div class="flex items-center mb-3">
                                     <div class="bg-primary-100 p-2 rounded-full mr-4">
-                                        <i data-feather="target" class="text-primary-600"></i>
+                                        <i data-feather="target" class="text-primary"></i>
                                     </div>
                                     <h3 class="font-bold text-lg">Missão</h3>
                                 </div>
@@ -116,7 +116,7 @@ onMounted(() => {
                             <div class="bg-white p-6 rounded-xl shadow-sm">
                                 <div class="flex items-center mb-3">
                                     <div class="bg-primary-100 p-2 rounded-full mr-4">
-                                        <i data-feather="eye" class="text-primary-600"></i>
+                                        <i data-feather="eye" class="text-primary"></i>
                                     </div>
                                     <h3 class="font-bold text-lg">Visão</h3>
                                 </div>
@@ -134,7 +134,7 @@ onMounted(() => {
         <section class="py-20 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary-600">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">
                         Nossos Projetos
                     </h2>
                     <p class="text-stone-600 max-w-2xl mx-auto">
@@ -517,9 +517,7 @@ onMounted(() => {
                             >
                                 R$ 100
                             </button>
-                            <button
-                                class="bg-primary-500 py-3 rounded-lg font-medium transition-slow"
-                            >
+                            <button class="bg-primary py-3 rounded-lg font-medium transition-slow">
                                 R$ 150
                             </button>
                             <button
@@ -531,7 +529,7 @@ onMounted(() => {
 
                         <div class="flex flex-col md:flex-row gap-4 justify-center">
                             <button
-                                class="bg-white text-primary-600 hover:bg-stone-100 px-8 py-3 rounded-full font-bold transition-slow"
+                                class="bg-white text-primary hover:bg-stone-100 px-8 py-3 rounded-full font-bold transition-slow"
                             >
                                 Doar uma vez
                             </button>
