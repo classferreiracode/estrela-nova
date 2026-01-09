@@ -72,13 +72,11 @@
                     <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
                         {{ group.title }}
                     </h2>
-                    <div
-                        class="grid gap-6 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
-                    >
+                    <div class="flex flex-wrap justify-center gap-6">
                         <div
                             v-for="(member, index) in group.members"
                             :key="`${group.title}-${index}`"
-                            class="p-6 text-center rounded-xl w-full max-w-[320px] justify-self-center"
+                            class="p-6 text-center border border-stone-200/30 rounded-xl w-full sm:w-1/2 lg:w-1/3 max-w-[320px]"
                         >
                             <img
                                 v-if="member.avatarSrc"
