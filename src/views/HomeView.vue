@@ -1,6 +1,7 @@
 <script setup>
 import SliderComponent from '@/components/SliderComponent.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
+import BlogCard from '@/components/BlogCard.vue'
 import { ref } from 'vue'
 import { onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -9,6 +10,7 @@ import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 import image from '@/assets/images/selos/1.png'
 import estrela from '@/assets/images/post_estrela_nova.png'
+import { blogPosts } from '@/data/blogPosts'
 
 const showModal = ref(false)
 const modules = [Autoplay, Pagination]
@@ -26,6 +28,8 @@ const slides = [
         image: image,
     },
 ]
+
+const homeBlogPosts = blogPosts.slice(0, 3)
 const toggleModal = () => {
     showModal.value = !showModal.value
 }
@@ -581,6 +585,43 @@ onMounted(() => {
                 </div>
             </div>
         </section>
+        <!-- End CTA Section -->
+        <!-- Blog Section -->
+        <section id="blog" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="md:flex items-end justify-between mb-12">
+                    <div class="mb-6 md:mb-0">
+                        <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">
+                            Acontece no Estrela Nova
+                        </h2>
+                        <p class="text-stone-600 max-w-2xl">
+                            Aqui, você acompanha as principais notícias sobre nossa atuação e
+                            diversos conteúdos de interesse social. Confira!
+                        </p>
+                    </div>
+                    <RouterLink
+                        to="/blog"
+                        class="inline-flex items-center bg-secondary text-white px-6 py-3 rounded-md font-medium hover:bg-secondary-600 transition"
+                    >
+                        Ver todas <i data-feather="arrow-right" class="ml-2"></i>
+                    </RouterLink>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <BlogCard
+                        v-for="post in homeBlogPosts"
+                        :key="post.id"
+                        :image-src="post.imageSrc"
+                        :image-alt="post.imageAlt"
+                        :category="post.category"
+                        :date="post.date"
+                        :title="post.title"
+                        :excerpt="post.excerpt"
+                        :to="`/blog/${post.slug}`"
+                    />
+                </div>
+            </div>
+        </section>
 
         <ModalComponent v-if="showModal" @close="showModal = false">
             <template v-slot:content>
@@ -637,3 +678,5 @@ onMounted(() => {
         </ModalComponent>
     </div>
 </template>
+
+

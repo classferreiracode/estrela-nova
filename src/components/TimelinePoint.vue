@@ -1,5 +1,5 @@
 <template>
-    <li>
+    <li ref="itemRef">
         <hr />
         <div class="timeline-middle">
             <svg
@@ -15,18 +15,25 @@
                 />
             </svg>
         </div>
-        <div @click="toggleJorney(year)" :class="position" class="md:mb-10 cursor-pointer">
-            <time class="font-mono text-lg hover:text-2xl transition-slow italic">{{ year }}</time>
-            <Transition>
-                <div v-if="showJorney === year">
-                    <div class="flex justify-start">
+        <div @click="toggleJorney(year)" :class="positionClass">
+            <time :class="timeClass">{{ year }}</time>
+            <Transition
+                enter-active-class="transition-all duration-300 ease-out"
+                enter-from-class="opacity-0 max-h-0"
+                enter-to-class="opacity-100 max-h-[1000px]"
+                leave-active-class="transition-all duration-200 ease-in"
+                leave-from-class="opacity-100 max-h-[1000px]"
+                leave-to-class="opacity-0 max-h-0"
+            >
+                <div v-if="showJorney === year" class="overflow-hidden">
+                    <div :class="mediaAlignClass">
                         <img
                             :src="img"
                             alt="Crianças da Estrela Nova"
-                            class="rounded-xl shadow-lg w-3/4 mb-4"
+                            :class="['rounded-xl shadow-lg mb-4', contentWidthClass]"
                         />
                     </div>
-                    <p class="text-justify w-3/4 me-auto">
+                    <p :class="['text-justify', contentWidthClass]">
                         {{ text }}
                     </p>
                 </div>
@@ -36,8 +43,8 @@
     </li>
 </template>
 <script setup>
-import { ref } from 'vue'
-defineProps({
+import { computed, nextTick, ref } from 'vue'
+const props = defineProps({
     text: {
         type: String,
         required: true,
@@ -50,11 +57,35 @@ defineProps({
         type: String,
         required: true,
     },
-    position: {
-        type: String,
-        required: false,
+    index: {
+        type: Number,
+        default: 0,
     },
 })
+const isEnd = computed(() => props.index % 2 === 1)
+const positionClass = computed(() => [
+    isEnd.value ? 'timeline-end' : 'timeline-start',
+    'md:mb-10',
+    'cursor-pointer',
+    isEnd.value ? 'md:text-start' : 'md:text-end',
+])
+const timeClass = computed(() => [
+    'font-mono',
+    'text-lg',
+    'hover:text-2xl',
+    'transition-slow',
+    'italic',
+])
+const mediaAlignClass = computed(() => [
+    'flex',
+    isEnd.value ? 'justify-start' : 'justify-end',
+])
+const contentWidthClass = computed(() => [
+    'w-full',
+    'md:w-3/4',
+    isEnd.value ? 'me-auto' : 'ms-auto',
+])
+const itemRef = ref(null)
 const showJorney = ref(false)
 
 const toggleJorney = (year) => {
@@ -62,9 +93,13 @@ const toggleJorney = (year) => {
     else showJorney.value = !showJorney.value
 
     if (showJorney.value) {
+        nextTick(() => {
+            itemRef.value?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        })
         setTimeout(() => {
             showJorney.value = ''
         }, 8000)
     }
 }
 </script>
+

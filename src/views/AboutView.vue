@@ -8,7 +8,7 @@
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
                     Estrela Nova
                 </h1>
-                <p class="text-xl md:text-2xl mb-8">Movimento Comunitário</p>
+                <p class="text-xl md:text-2xl mb-8">Movimento Comunitario</p>
             </div>
         </div>
     </section>
@@ -18,16 +18,16 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div class="order-2 md:order-1">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa História</h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Historia</h2>
                     <p class="text-stone-600">
-                        Uma história construída com solidariedade, compromisso e o desejo de ver
+                        Uma historia construida com solidariedade, compromisso e o desejo de ver
                         cada pessoa brilhar.
                     </p>
                 </div>
                 <div class="order-1 md:order-2">
                     <img
                         src="@/assets/images/5.png"
-                        alt="Crianças da Estrela Nova"
+                        alt="Criancas da Estrela Nova"
                         class="rounded-xl shadow-lg w-full"
                     />
                 </div>
@@ -39,44 +39,16 @@
     <section class="bg-stone-100 py-20">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Trajetória</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Trajetoria</h2>
             </div>
             <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
                 <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-start"
-                    year="1970"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
-                />
-                <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-end"
-                    year="1978"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
-                />
-                <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-start"
-                    year="1984"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
-                />
-                <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-end"
-                    year="1985"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
-                />
-                <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-start"
-                    year="1984"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
-                />
-                <TimelinePoint
-                    img="@/assets/images/5.png"
-                    position="timeline-end"
-                    year="1988"
-                    text="É instituído formalmente o Movimento Comunitário Estrela Nova, com a construção de sua primeira sede e início das atividades com crianças."
+                    v-for="(item, index) in timeline"
+                    :key="`${item.year}-${index}`"
+                    :img="item.image"
+                    :year="item.year"
+                    :text="item.text"
+                    :index="index"
                 />
             </ul>
         </div>
@@ -86,23 +58,38 @@
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Gestão</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Gestao</h2>
                 <p class="text-stone-600 max-w-2xl mx-auto">
-                    Estes são os profissionais que ajudam a direcionar e fortalecer nossas ações de
-                    modo estratégico. São voluntários escolhidos há cada dois anos na Assembleia
+                    Estes sao os profissionais que ajudam a direcionar e fortalecer nossas acoes de
+                    modo estrategico. Sao voluntarios escolhidos ha cada dois anos na Assembleia
                     Geral do Estrela Nova, para compor os grupos de Diretoria, Conselhos Fiscal,
-                    Consultivo e Comunitário.
+                    Consultivo e Comunitario.
                 </p>
             </div>
-            <div class="grid grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-                <div class="p-4 text-center">
-                    <img
-                        src="@/assets/images/5.png"
-                        alt="Membro da Gestão"
-                        class="rounded-full w-32 h-32 mx-auto mb-4 object-cover"
-                    />
-                    <h3 class="text-xl font-semibold">Nome do Membro</h3>
-                    <p class="text-stone-600">Cargo</p>
+
+            <div class="space-y-12">
+                <div v-for="group in memberGroups" :key="group.title">
+                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
+                        {{ group.title }}
+                    </h2>
+                    <div
+                        class="grid gap-6 justify-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+                    >
+                        <div
+                            v-for="(member, index) in group.members"
+                            :key="`${group.title}-${index}`"
+                            class="p-6 text-center rounded-xl w-full max-w-[320px] justify-self-center"
+                        >
+                            <img
+                                v-if="member.avatarSrc"
+                                :src="member.avatarSrc"
+                                :alt="`Foto de ${member.name}`"
+                                class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+                            />
+                            <h3 class="text-lg font-semibold text-stone-800">{{ member.name }}</h3>
+                            <p class="text-stone-600 mt-2">{{ member.role }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -111,7 +98,11 @@
 
 <script setup>
 import TimelinePoint from '@/components/TimelinePoint.vue'
+import { timeline } from '@/data/timeline'
+import { members } from '@/data/members'
 import { onMounted } from 'vue'
+
+const memberGroups = members
 
 onMounted(() => {
     window.feather.replace()

@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "slug": "agosto-dourado",
+        "title": "Agosto Dourado",
+        "category": "Institucional",
+        "date": "29/08/2025",
+        "excerpt": "Um compromisso que fortalece vinculos.",
+        "image": "6.png",
+        "imageAlt": "Educacao infantil",
+        "content": [
+            "O Agosto Dourado reforca a importancia do aleitamento materno e da criacao de redes de apoio.",
+            "No Estrela Nova, o tema inspirou rodas de conversa, acolhimento e troca de experiencias entre familias.",
+            "Seguimos fortalecendo esses vinculos para garantir cuidado, escuta e informacao para a comunidade."
+        ]
+    },
+    {
+        "id": 2,
+        "slug": "mes-da-mulher-no-estrela-nova",
+        "title": "Mes da Mulher no Estrela Nova",
+        "category": "Eventos",
+        "date": "03/04/2025",
+        "excerpt": "Palestras sobre autocuidado e empoderamento marcam homenagens as mulheres.",
+        "image": "7.png",
+        "imageAlt": "Voluntariado",
+        "content": [
+            "Durante o Mes da Mulher, realizamos encontros com foco em autocuidado e fortalecimento pessoal.",
+            "As atividades reuniram participantes de diferentes idades e reforcaram a importancia da escuta ativa.",
+            "A programacao tambem celebrou as conquistas e os desafios das mulheres na comunidade."
+        ]
+    },
+    {
+        "id": 3,
+        "slug": "emocao-e-participacao-na-assembleia-geral",
+        "title": "Emocao e participacao marcam a Assembleia Geral do Estrela Nova",
+        "category": "Institucional",
+        "date": "10/04/2025",
+        "excerpt": "Evento tambem apresentou novos membros da diretoria e conselhos.",
+        "image": "8.png",
+        "imageAlt": "Comunidade",
+        "content": [
+            "A Assembleia Geral reuniu moradores, parceiros e equipe para compartilhar resultados e metas.",
+            "O encontro celebrou a participacao da comunidade e apresentou os novos membros da gestao.",
+            "Seguimos juntos para fortalecer projetos que geram impacto social no territorio."
+        ]
+    }
+]

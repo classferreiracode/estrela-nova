@@ -30,6 +30,9 @@ onMounted(() => {
                     <RouterLink to="/sobre" class="font-medium hover:text-primary-500"
                         >Sobre</RouterLink
                     >
+                    <RouterLink to="/blog" class="font-medium hover:text-primary-500"
+                        >Blog</RouterLink
+                    >
                     <RouterLink to="/contato" class="font-medium hover:text-primary-500"
                         >Contato</RouterLink
                     >
@@ -48,6 +51,7 @@ onMounted(() => {
         <nav class="flex flex-col p-4 space-y-4">
             <RouterLink to="/" @click="ui.toggleMenu">Home</RouterLink>
             <RouterLink to="/sobre" @click="ui.toggleMenu">Sobre</RouterLink>
+            <RouterLink to="/blog" @click="ui.toggleMenu">Blog</RouterLink>
             <RouterLink to="/contato" @click="ui.toggleMenu">Contato</RouterLink>
             <!-- <RouterLink to="/projetos" @click="ui.toggleMenu">Projetos</RouterLink>
       <RouterLink to="/contato" @click="ui.toggleMenu">Contato</RouterLink> -->
