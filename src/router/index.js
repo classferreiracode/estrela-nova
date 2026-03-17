@@ -12,6 +12,16 @@ const routes = [
         component: () => import('@/views/AboutView.vue'),
     },
     {
+        path: '/atuacao',
+        name: 'atuacao',
+        component: () => import('@/views/AtuacaoView.vue'),
+    },
+    {
+        path: '/como-apoiar',
+        name: 'como-apoiar',
+        component: () => import('@/views/ComoApoiarView.vue'),
+    },
+    {
         path: '/contato',
         name: 'contato',
         component: () => import('@/views/ContactView.vue'),
