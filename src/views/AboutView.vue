@@ -175,17 +175,58 @@
         <div class="container mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-6 text-primary">Nossa Trajetória</h2>
+                <p class="mx-auto max-w-3xl text-stone-600 leading-relaxed">
+                    Cada etapa da nossa história foi construída em diálogo com o território. A linha
+                    do tempo abaixo destaca marcos que mostram como a atuação do Estrela Nova
+                    evoluiu com escuta, mobilização comunitária e presença contínua.
+                </p>
             </div>
-            <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical">
-                <TimelinePoint
-                    v-for="(item, index) in timeline"
-                    :key="`${item.year}-${index}`"
-                    :img="item.image"
-                    :year="item.year"
-                    :text="item.text"
-                    :index="index"
-                />
-            </ul>
+
+            <div class="mb-12 grid gap-4 md:grid-cols-3">
+                <div class="rounded-2xl border border-primary-100 bg-white p-6 shadow-sm">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-700">
+                        Origem
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">+40 anos</p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        De atuação comunitária contínua com raízes no Campo Limpo.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-secondary-100 bg-white p-6 shadow-sm">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-secondary-700">
+                        Caminho
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">13 marcos</p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        Uma jornada feita de mobilização, serviços e conquistas coletivas.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-yellow-300 bg-white p-6 shadow-sm">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-700">
+                        Impacto
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">Comunidade no centro</p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        Cada avanço responde a necessidades reais do território e das famílias.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative mx-auto max-w-6xl">
+                <div
+                    class="pointer-events-none absolute left-6 top-0 h-full w-px bg-gradient-to-b from-primary via-secondary to-yellow md:left-1/2 md:-translate-x-1/2"
+                ></div>
+                <ol class="space-y-6 md:space-y-8">
+                    <TimelinePoint
+                        v-for="(item, index) in timeline"
+                        :key="`${item.year}-${index}`"
+                        :img="item.image"
+                        :year="item.year"
+                        :text="item.text"
+                        :index="index"
+                    />
+                </ol>
+            </div>
         </div>
     </section>
 
@@ -202,28 +243,127 @@
                 </p>
             </div>
 
-            <div class="space-y-12">
-                <div v-for="group in memberGroups" :key="group.title">
-                    <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary text-center">
-                        {{ group.title }}
-                    </h2>
-                    <div class="flex flex-wrap justify-center gap-6">
-                        <div
-                            v-for="(member, index) in group.members"
-                            :key="`${group.title}-${index}`"
-                            class="p-6 text-center border border-stone-200/30 rounded-xl w-full sm:w-1/2 lg:w-1/3 max-w-[320px]"
-                        >
-                            <img
-                                v-if="member.avatarSrc"
-                                :src="member.avatarSrc"
-                                :alt="`Foto de ${member.name}`"
-                                class="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
-                            />
-                            <h3 class="text-lg font-semibold text-stone-800">{{ member.name }}</h3>
-                            <p class="text-stone-600 mt-2">{{ member.role }}</p>
+            <div class="mb-14 grid gap-4 md:grid-cols-3">
+                <div class="rounded-2xl border border-primary-100 bg-primary-100/20 p-6">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary-700">
+                        Escolha
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">A cada 2 anos</p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        A composição da gestão é definida em Assembleia Geral.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-secondary-100 bg-secondary-50/60 p-6">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-secondary-700">
+                        Estrutura
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">
+                        {{ memberGroups.length }} grupos
+                    </p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        Diretoria e conselhos com funções complementares de orientação e governança.
+                    </p>
+                </div>
+                <div class="rounded-2xl border border-yellow-300 bg-yellow-50 p-6">
+                    <p class="text-sm font-semibold uppercase tracking-[0.2em] text-yellow-700">
+                        Atuação
+                    </p>
+                    <p class="mt-3 text-3xl font-bold text-stone-800">Gestão voluntária</p>
+                    <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                        Uma rede de pessoas que fortalece o direcionamento institucional.
+                    </p>
+                </div>
+            </div>
+
+            <div class="space-y-8 md:space-y-10">
+                <article
+                    v-for="group in memberGroups"
+                    :key="group.title"
+                    class="overflow-hidden rounded-[28px] border bg-stone-50 shadow-sm"
+                    :class="group.sectionClass"
+                >
+                    <div class="grid gap-8 p-6 md:grid-cols-[280px_minmax(0,1fr)] md:p-8">
+                        <div class="md:border-r md:border-stone-200/70 md:pr-8">
+                            <div
+                                class="inline-flex h-14 w-14 items-center justify-center rounded-2xl border bg-white shadow-sm"
+                                :class="group.iconClass"
+                            >
+                                <i :data-feather="group.icon" class="h-5 w-5"></i>
+                            </div>
+                            <p
+                                class="mt-5 text-xs font-semibold uppercase tracking-[0.22em]"
+                                :class="group.eyebrowClass"
+                            >
+                                {{ group.eyebrow }}
+                            </p>
+                            <h3 class="mt-3 text-2xl font-bold text-stone-800 md:text-3xl">
+                                {{ group.title }}
+                            </h3>
+                            <p class="mt-3 leading-relaxed text-stone-600">
+                                {{ group.description }}
+                            </p>
+                            <div class="mt-6 flex flex-wrap gap-3">
+                                <span
+                                    class="inline-flex items-center rounded-full border border-white/70 bg-white px-4 py-2 text-sm font-semibold text-stone-700 shadow-sm"
+                                >
+                                    {{ group.members.length }} integrantes
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-full px-4 py-2 text-sm font-semibold"
+                                    :class="group.tagClass"
+                                >
+                                    {{ group.tag }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+                            <article
+                                v-for="(member, index) in group.members"
+                                :key="`${group.title}-${index}`"
+                                class="group/member relative overflow-hidden rounded-3xl border border-white/80 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+                            >
+                                <div
+                                    class="absolute inset-x-0 top-0 h-1.5 opacity-90"
+                                    :class="group.barClass"
+                                ></div>
+                                <div class="flex items-start gap-4 pt-3">
+                                    <div class="relative shrink-0">
+                                        <img
+                                            v-if="member.avatarSrc"
+                                            :src="member.avatarSrc"
+                                            :alt="`Foto de ${member.name}`"
+                                            class="h-18 w-18 rounded-2xl object-cover shadow-sm"
+                                        />
+                                        <div
+                                            class="absolute -bottom-2 -right-2 flex h-8 w-8 items-center justify-center rounded-xl border-2 border-white bg-stone-900 text-white shadow-sm"
+                                        >
+                                            <span class="text-xs font-bold">
+                                                {{ getInitials(member.name) }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="min-w-0 flex-1">
+                                        <span
+                                            class="inline-flex rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em]"
+                                            :class="group.badgeClass"
+                                        >
+                                            {{ member.role }}
+                                        </span>
+                                        <h4
+                                            class="mt-3 text-lg font-bold leading-snug text-stone-800"
+                                        >
+                                            {{ member.name }}
+                                        </h4>
+                                        <p class="mt-2 text-sm leading-relaxed text-stone-500">
+                                            {{ group.memberSupportText }}
+                                        </p>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -293,7 +433,111 @@ import { timeline } from '@/data/timeline'
 import { members } from '@/data/members'
 import { onMounted } from 'vue'
 
-const memberGroups = members
+const groupMeta = {
+    Diretoria: {
+        eyebrow: 'Governança Executiva',
+        description:
+            'Responsável por orientar prioridades, acompanhar decisões institucionais e sustentar o direcionamento estratégico da organização.',
+        icon: 'briefcase',
+        tag: 'Direção institucional',
+        memberSupportText:
+            'Atuação estratégica para fortalecer o funcionamento e as decisões da organização.',
+        sectionClass: 'border-primary-100 bg-primary-100/15',
+        iconClass: 'border-primary-100 text-primary',
+        eyebrowClass: 'text-primary-700',
+        tagClass: 'bg-primary text-white',
+        badgeClass: 'border-primary-100 bg-primary-100/40 text-primary-700',
+        barClass: 'bg-primary',
+    },
+    'Conselho Honorario': {
+        eyebrow: 'Memória e Legado',
+        description:
+            'Reúne trajetórias de referência que ajudam a preservar valores, história e vínculos fundamentais para a identidade institucional.',
+        icon: 'award',
+        tag: 'Legado institucional',
+        memberSupportText:
+            'Referência simbólica e histórica para a continuidade do trabalho do Estrela Nova.',
+        sectionClass: 'border-yellow-300 bg-yellow-50/80',
+        iconClass: 'border-yellow-300 text-yellow-700',
+        eyebrowClass: 'text-yellow-700',
+        tagClass: 'bg-yellow-500 text-stone-900',
+        badgeClass: 'border-yellow-300 bg-yellow-50 text-yellow-700',
+        barClass: 'bg-yellow-500',
+    },
+    'Conselho Consultivo': {
+        eyebrow: 'Orientação Técnica',
+        description:
+            'Contribui com visão analítica e aconselhamento para apoiar escolhas estratégicas e ampliar a qualidade das decisões.',
+        icon: 'compass',
+        tag: 'Apoio consultivo',
+        memberSupportText:
+            'Contribuição de visão crítica e repertório para orientar caminhos e prioridades.',
+        sectionClass: 'border-secondary-100 bg-secondary-50/60',
+        iconClass: 'border-secondary-100 text-secondary',
+        eyebrowClass: 'text-secondary-700',
+        tagClass: 'bg-secondary text-white',
+        badgeClass: 'border-secondary-100 bg-secondary-50 text-secondary-700',
+        barClass: 'bg-secondary',
+    },
+    'Conselho Fiscal': {
+        eyebrow: 'Acompanhamento e Controle',
+        description:
+            'Atua no acompanhamento responsável das práticas de gestão, reforçando transparência, zelo e credibilidade institucional.',
+        icon: 'shield',
+        tag: 'Controle e transparência',
+        memberSupportText:
+            'Acompanhamento atento para sustentar confiança e responsabilidade institucional.',
+        sectionClass: 'border-stone-200 bg-stone-100/80',
+        iconClass: 'border-stone-200 text-stone-700',
+        eyebrowClass: 'text-stone-600',
+        tagClass: 'bg-stone-800 text-white',
+        badgeClass: 'border-stone-200 bg-stone-100 text-stone-700',
+        barClass: 'bg-stone-700',
+    },
+    'Conselho Comunitario': {
+        eyebrow: 'Escuta do Território',
+        description:
+            'Fortalece a conexão com a comunidade e contribui para que decisões e prioridades permaneçam alinhadas às realidades locais.',
+        icon: 'users',
+        tag: 'Vínculo comunitário',
+        memberSupportText:
+            'Representação próxima do território para manter a gestão conectada à comunidade.',
+        sectionClass: 'border-primary-100 bg-white',
+        iconClass: 'border-primary-100 text-primary',
+        eyebrowClass: 'text-primary-700',
+        tagClass: 'bg-primary-900 text-white',
+        badgeClass: 'border-primary-100 bg-primary-100/30 text-primary-700',
+        barClass: 'bg-gradient-to-r from-primary to-secondary',
+    },
+}
+
+const defaultGroupMeta = {
+    eyebrow: 'Gestão Institucional',
+    description:
+        'Grupo que contribui para a estrutura de governança e fortalecimento institucional do Estrela Nova.',
+    icon: 'users',
+    tag: 'Atuação institucional',
+    memberSupportText: 'Participação estratégica na sustentação da governança institucional.',
+    sectionClass: 'border-stone-200 bg-stone-50',
+    iconClass: 'border-stone-200 text-stone-700',
+    eyebrowClass: 'text-stone-600',
+    tagClass: 'bg-stone-800 text-white',
+    badgeClass: 'border-stone-200 bg-stone-100 text-stone-700',
+    barClass: 'bg-stone-700',
+}
+
+const memberGroups = members.map((group) => ({
+    ...group,
+    ...(groupMeta[group.title] || defaultGroupMeta),
+}))
+
+const getInitials = (name) =>
+    name
+        .split(' ')
+        .filter(Boolean)
+        .slice(0, 2)
+        .map((part) => part[0]?.toUpperCase() || '')
+        .join('')
 
 const anchorTabs = [
     { label: 'Sobre Nós', href: '#sobre' },
