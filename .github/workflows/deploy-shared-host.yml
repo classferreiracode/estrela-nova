@@ -1,0 +1,52 @@
+name: Build and deploy to shared host
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, intl, pdo_mysql, fileinfo
+          coverage: none
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Build production release
+        run: |
+          composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+          npm ci
+          npm run build
+          mkdir release
+          rsync -a --exclude release --exclude .git --exclude .github --exclude .env \
+            --exclude node_modules --exclude tests --exclude backend --exclude docs \
+            ./ release/
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: estrela-nova-production
+          path: release
+          retention-days: 14
+      - name: Upload by FTPS
+        if: ${{ vars.ENABLE_FTP_DEPLOY == 'true' }}
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+          FTP_REMOTE_DIR: ${{ vars.FTP_REMOTE_DIR }}
+        run: |
+          test -n "$FTP_HOST" && test -n "$FTP_USER" && test -n "$FTP_PASSWORD" && test -n "$FTP_REMOTE_DIR"
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          lftp -c "set ftp:ssl-force true; set ssl:verify-certificate true; open -u '$FTP_USER','$FTP_PASSWORD' '$FTP_HOST'; mirror --reverse --only-newer --parallel=4 --exclude-glob .env --exclude-glob 'storage/logs/**' release/ '$FTP_REMOTE_DIR'; bye"

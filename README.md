@@ -1,44 +1,28 @@
-# estrela-nova
+# Estrela Nova CMS
 
-This template should help get you started developing with Vue 3 in Vite.
+Site institucional e CMS do Movimento Comunitário Estrela Nova. O layout público aprovado foi
+preservado em Vue 3 e agora roda no mesmo projeto Laravel 13 do painel Filament.
 
-## Recommended IDE Setup
+## Desenvolvimento
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Recommended Browser Setup
-
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
+Requisitos: PHP 8.3+, Composer, Node 22+ e MySQL/MariaDB (SQLite também funciona localmente).
 
 ```sh
+composer install
 npm install
+copy .env.example .env
+php artisan key:generate
+php artisan migrate --seed
+php artisan storage:link
+composer run dev
 ```
 
-### Compile and Hot-Reload for Development
+- site: `http://localhost:8000`
+- painel: `http://localhost:8000/admin`
+- testes: `php artisan test`
+- build: `npm run build`
 
-```sh
-npm run dev
-```
+Para criar o primeiro administrador pelo seed, preencha temporariamente `ADMIN_EMAIL` e
+`ADMIN_PASSWORD` no `.env`. Não existem credenciais padrão versionadas.
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+Consulte [arquitetura](docs/ARCHITECTURE.md) e [deploy](docs/DEPLOYMENT.md).

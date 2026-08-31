@@ -1,24 +1,26 @@
-import { fileURLToPath, URL } from 'node:url'
-
-import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
-import vueJsx from '@vitejs/plugin-vue-jsx'
-import vueDevTools from 'vite-plugin-vue-devtools'
-import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite';
+import laravel from 'laravel-vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
+import vue from '@vitejs/plugin-vue';
+import { fileURLToPath, URL } from 'node:url';
 
 export default defineConfig({
-    plugins: [vue(), tailwindcss(), vueJsx(), vueDevTools()],
+    plugins: [
+        laravel({
+            input: ['resources/js/site/main.js'],
+            refresh: true,
+        }),
+        vue(),
+        tailwindcss(),
+    ],
     resolve: {
         alias: {
-            '@': fileURLToPath(new URL('./src', import.meta.url)),
+            '@': fileURLToPath(new URL('./resources/js/site', import.meta.url)),
         },
     },
     server: {
-        proxy: {
-            '/api': {
-                target: 'http://localhost:8000',
-                changeOrigin: true,
-            },
+        watch: {
+            ignored: ['**/storage/framework/views/**'],
         },
     },
-})
+});
