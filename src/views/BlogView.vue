@@ -1,9 +1,12 @@
 <script setup>
 import BlogCard from '@/components/BlogCard.vue'
-import { onMounted } from 'vue'
-import { blogPosts } from '@/data/blogPosts'
+import { ref, onMounted } from 'vue'
+import { getBlogPosts } from '@/services/api'
 
-onMounted(() => {
+const blogPosts = ref([])
+
+onMounted(async () => {
+    blogPosts.value = await getBlogPosts()
     window.feather.replace()
 })
 </script>
@@ -22,8 +25,8 @@ onMounted(() => {
                 <BlogCard
                     v-for="post in blogPosts"
                     :key="post.id"
-                    :image-src="post.imageSrc"
-                    :image-alt="post.imageAlt"
+                    :image="post.image_url"
+                    :image-alt="post.image_alt"
                     :category="post.category"
                     :date="post.date"
                     :title="post.title"

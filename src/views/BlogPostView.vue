@@ -1,12 +1,17 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import { blogPosts } from '@/data/blogPosts'
+import { getBlogPost } from '@/services/api'
 
 const route = useRoute()
-const post = computed(() => blogPosts.find((item) => item.slug === route.params.slug))
+const post = ref(null)
 
-onMounted(() => {
+onMounted(async () => {
+    try {
+        post.value = await getBlogPost(route.params.slug)
+    } catch {
+        post.value = null
+    }
     window.feather.replace()
 })
 </script>
@@ -39,14 +44,14 @@ onMounted(() => {
                 </div>
 
                 <img
-                    :src="post.imageSrc"
-                    :alt="post.imageAlt"
+                    :src="post.image_url"
+                    :alt="post.image_alt"
                     class="w-full rounded-xl shadow-sm mb-8"
                 />
 
                 <div class="space-y-6 text-stone-700 leading-relaxed">
                     <p v-for="(paragraph, index) in post.content" :key="index">
-                        {{ paragraph }}
+                        {{ paragraph.text || paragraph }}
                     </p>
                 </div>
             </div>

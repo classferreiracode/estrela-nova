@@ -220,9 +220,9 @@
                     <TimelinePoint
                         v-for="(item, index) in timeline"
                         :key="`${item.year}-${index}`"
-                        :img="item.image"
-                        :year="item.year"
-                        :text="item.text"
+    :img="item.image_url || '/src/assets/images/post_estrela_nova.png'"
+    :year="item.year"
+    :text="item.text"
                         :index="index"
                     />
                 </ol>
@@ -330,8 +330,8 @@
                                 <div class="flex items-start gap-4 pt-3">
                                     <div class="relative shrink-0">
                                         <img
-                                            v-if="member.avatarSrc"
-                                            :src="member.avatarSrc"
+                                            v-if="member.avatar"
+                                            :src="member.avatar_url"
                                             :alt="`Foto de ${member.name}`"
                                             class="h-18 w-18 rounded-2xl object-cover shadow-sm"
                                         />
@@ -429,9 +429,11 @@
 
 <script setup>
 import TimelinePoint from '@/components/TimelinePoint.vue'
-import { timeline } from '@/data/timeline'
-import { members } from '@/data/members'
-import { onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { getTimelineEvents, getMembers } from '@/services/api'
+
+const timeline = ref([])
+const members = ref([])
 
 const groupMeta = {
     Diretoria: {
@@ -526,10 +528,12 @@ const defaultGroupMeta = {
     barClass: 'bg-stone-700',
 }
 
-const memberGroups = members.map((group) => ({
-    ...group,
-    ...(groupMeta[group.title] || defaultGroupMeta),
-}))
+const memberGroups = computed(() =>
+    members.value.map((group) => ({
+        ...group,
+        ...(groupMeta[group.title] || defaultGroupMeta),
+    }))
+)
 
 const getInitials = (name) =>
     name
@@ -563,7 +567,9 @@ const documents = [
     { icon: 'shield', title: 'Política de Privacidade', subtitle: 'Download PDF' },
 ]
 
-onMounted(() => {
+onMounted(async () => {
+    timeline.value = await getTimelineEvents()
+    members.value = await getMembers()
     window.feather.replace()
 })
 </script>

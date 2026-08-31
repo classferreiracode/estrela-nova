@@ -2,7 +2,7 @@
 import SliderComponent from '@/components/SliderComponent.vue'
 import ModalComponent from '@/components/ModalComponent.vue'
 import BlogCard from '@/components/BlogCard.vue'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { onMounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
@@ -10,9 +10,10 @@ import 'swiper/css/pagination'
 import { Autoplay, Pagination } from 'swiper/modules'
 import image from '@/assets/images/selos/1.png'
 import estrela from '@/assets/images/post_estrela_nova.png'
-import { blogPosts } from '@/data/blogPosts'
+import { getBlogPosts } from '@/services/api'
 
 const showModal = ref(false)
+const allBlogPosts = ref([])
 const modules = [Autoplay, Pagination]
 const slides = [
     {
@@ -29,12 +30,13 @@ const slides = [
     },
 ]
 
-const homeBlogPosts = blogPosts.slice(0, 3)
+const homeBlogPosts = computed(() => allBlogPosts.value.slice(0, 3))
 const toggleModal = () => {
     showModal.value = !showModal.value
 }
 
-onMounted(() => {
+onMounted(async () => {
+    allBlogPosts.value = await getBlogPosts()
     window.feather.replace()
 })
 </script>
@@ -611,8 +613,8 @@ onMounted(() => {
                     <BlogCard
                         v-for="post in homeBlogPosts"
                         :key="post.id"
-                        :image-src="post.imageSrc"
-                        :image-alt="post.imageAlt"
+                        :image="post.image_url"
+                        :image-alt="post.image_alt"
                         :category="post.category"
                         :date="post.date"
                         :title="post.title"

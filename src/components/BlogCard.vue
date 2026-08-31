@@ -1,6 +1,6 @@
 <template>
     <article class="bg-stone-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition">
-        <img :src="imageSrc" :alt="imageAlt" class="w-full h-48 object-cover" />
+        <img :src="imageSrc || image" :alt="imageAlt" class="w-full h-48 object-cover" />
         <div class="p-6">
             <div class="flex items-center text-sm text-stone-500 mb-3">
                 <span
@@ -28,21 +28,25 @@
 
 <script setup>
 defineProps({
+    image: {
+        type: String,
+        default: null,
+    },
     imageSrc: {
         type: String,
-        required: true,
+        default: null,
     },
     imageAlt: {
         type: String,
-        required: true,
+        default: '',
     },
     category: {
         type: String,
-        required: true,
+        default: '',
     },
     date: {
         type: String,
-        required: true,
+        default: '',
     },
     title: {
         type: String,
@@ -50,7 +54,7 @@ defineProps({
     },
     excerpt: {
         type: String,
-        required: true,
+        default: '',
     },
     to: {
         type: String,

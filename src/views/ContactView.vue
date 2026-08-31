@@ -1,5 +1,25 @@
 <script setup>
-import { onMounted } from 'vue'
+import { ref, onMounted } from 'vue'
+import { submitContact } from '@/services/api'
+
+const form = ref({ name: '', email: '', subject: '', message: '' })
+const submitting = ref(false)
+const success = ref(false)
+const error = ref('')
+
+async function handleSubmit() {
+    submitting.value = true
+    error.value = ''
+    try {
+        await submitContact(form.value)
+        success.value = true
+        form.value = { name: '', email: '', subject: '', message: '' }
+    } catch (e) {
+        error.value = 'Erro ao enviar mensagem. Tente novamente.'
+    } finally {
+        submitting.value = false
+    }
+}
 
 onMounted(() => {
     window.feather.replace()
@@ -98,7 +118,13 @@ onMounted(() => {
                     <div class="bg-stone-100 p-8 rounded-xl">
                         <h3 class="text-2xl font-bold mb-6 text-primary-600">Envie uma mensagem</h3>
 
-                        <form>
+                        <form @submit.prevent="handleSubmit">
+                            <div v-if="success" class="mb-6 p-4 bg-green-100 text-green-700 rounded-lg">
+                                Mensagem enviada com sucesso! Entraremos em contato em breve.
+                            </div>
+                            <div v-if="error" class="mb-6 p-4 bg-red-100 text-red-700 rounded-lg">
+                                {{ error }}
+                            </div>
                             <div class="mb-6">
                                 <label for="name" class="block font-medium mb-2"
                                     >Nome completo</label
@@ -106,6 +132,8 @@ onMounted(() => {
                                 <input
                                     type="text"
                                     id="name"
+                                    v-model="form.name"
+                                    required
                                     class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-primary-500 focus:outline-none"
                                 />
                             </div>
@@ -115,6 +143,8 @@ onMounted(() => {
                                 <input
                                     type="email"
                                     id="email"
+                                    v-model="form.email"
+                                    required
                                     class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-primary-500 focus:outline-none"
                                 />
                             </div>
@@ -123,9 +153,10 @@ onMounted(() => {
                                 <label for="subject" class="block font-medium mb-2">Assunto</label>
                                 <select
                                     id="subject"
+                                    v-model="form.subject"
                                     class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-primary-500 focus:outline-none"
                                 >
-                                    <option>Selecione um assunto</option>
+                                    <option value="">Selecione um assunto</option>
                                     <option>Doação Pessoa Física</option>
                                     <option>Doação Pessoa Jurídica</option>
                                     <option>Doação Imposto de Renda</option>
@@ -142,16 +173,19 @@ onMounted(() => {
                                 <label for="message" class="block font-medium mb-2">Mensagem</label>
                                 <textarea
                                     id="message"
+                                    v-model="form.message"
                                     rows="4"
+                                    required
                                     class="w-full px-4 py-3 rounded-lg border border-stone-300 focus:border-primary-500 focus:outline-none"
                                 ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                class="w-full bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-bold transition-slow"
+                                :disabled="submitting"
+                                class="w-full bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-lg font-bold transition-slow disabled:opacity-50"
                             >
-                                Enviar mensagem
+                                {{ submitting ? 'Enviando...' : 'Enviar mensagem' }}
                             </button>
                         </form>
                     </div>
